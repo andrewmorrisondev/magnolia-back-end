@@ -11,6 +11,7 @@ const router = Router()
 router.use(decodeUserFromToken)
 router.get('/:treeId', checkAuth, treesCtrl.show)
 router.post('/', checkAuth, treesCtrl.create)
+router.post('/:treeId/members', checkAuth, treesCtrl.createMember)
 router.put('/:treeId', checkAuth, treesCtrl.update)
 router.delete('/:treeId', checkAuth, treesCtrl.delete)
 

@@ -8,11 +8,11 @@ const familyRecipeSchema = new Schema(
       type: String,
       required: true,
     },
-    ingredients: {
+    ingredients: [{
       type: String,
       required: true,
-    },
-    content: {
+    }],
+    directions: {
       type: String,
       required: true,
     },

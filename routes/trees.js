@@ -12,6 +12,7 @@ router.use(decodeUserFromToken)
 router.get('/:treeId', checkAuth, treesCtrl.show)
 router.post('/', checkAuth, treesCtrl.create)
 router.put('/:treeId', checkAuth, treesCtrl.update)
+router.delete('/:treeId', checkAuth, treesCtrl.delete)
 
 
 export { router }

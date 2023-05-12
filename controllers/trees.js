@@ -59,7 +59,13 @@ async function deleteTree(req, res) {
 
 async function createMember(req, res) {
   try {
-    
+    const tree = await FamilyTree.findById(req.params.treeId)
+    tree.members.push(req.body)
+    await tree.save()
+
+    const newMember = tree.members[tree.members.length - 1]
+
+    res.status(201).json(newMember)
   } catch (error) {
     console.log(error)
     res.status(500).json(error)

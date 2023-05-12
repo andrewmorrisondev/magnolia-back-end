@@ -32,7 +32,12 @@ async function show(req, res) {
 
 async function update(req, res) {
   try {
-    
+    const tree = await FamilyTree.findByIdAndUpdate(
+      req.params.treeId,
+      req.body,
+      { new: true }
+    ).populate('creator')
+    res.status(200).json(tree)
   } catch (error) {
     console.log(error)
     res.status(500).json(error)

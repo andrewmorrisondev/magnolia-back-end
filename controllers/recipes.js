@@ -4,7 +4,15 @@ import { FamilyTree } from "../models/tree.js"
 
 async function create(req, res) {
   try {
-    
+    req.body.creator = req.user.profile
+    const recipe = await FamilyRecipe.create(req.body)
+    const profile = await Profile.findByIdAndUpdate(
+      req.user.profile,
+      { $push: { familyRecipes: recipe } },
+      { new: true }
+    )
+    recipe.creator = profile
+    res.status(201).json(recipe)
   } catch (error) {
     console.log(error)
     res.status(500).json(error)

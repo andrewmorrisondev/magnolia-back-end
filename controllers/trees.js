@@ -38,9 +38,19 @@ async function deleteTree(req, res) {
   }
 }
 
+async function createMember(req, res) {
+  try {
+    
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
+}
+
 export { 
   create,
   show,
   update,
   deleteTree as delete,
+  createMember,
 }

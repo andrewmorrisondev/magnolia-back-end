@@ -33,7 +33,9 @@ async function index(req, res) {
 
 async function show(req, res) {
   try {
-    
+    const recipe = await FamilyRecipe.findById(req.params.recipeId)
+      .populate('creator')
+    res.status(200).json(recipe)
   } catch (error) {
     console.log(error)
     res.status(500).json(error)

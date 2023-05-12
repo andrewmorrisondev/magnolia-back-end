@@ -9,6 +9,7 @@ const router = Router()
 
 // ========= Protected Routes ========= 
 router.use(decodeUserFromToken)
+router.get('/:treeId', checkAuth, treesCtrl.show)
 router.post('/', checkAuth, treesCtrl.create)
 
 

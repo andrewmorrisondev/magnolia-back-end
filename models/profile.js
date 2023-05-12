@@ -5,8 +5,8 @@ const Schema = mongoose.Schema
 const profileSchema = new Schema({
   name: String,
   photo: String,
-  familyRecipes: { type: Schema.Types.ObjectId, ref: 'FamilyRecipe' },
-  familyTree: { type: Schema.Types.ObjectId, ref: 'FamilyTree' }
+  familyRecipes: [{ type: Schema.Types.ObjectId, ref: 'FamilyRecipe' }],
+  familyTree: [{ type: Schema.Types.ObjectId, ref: 'FamilyTree' }]
 },{
   timestamps: true,
 })

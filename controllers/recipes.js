@@ -58,7 +58,11 @@ async function update(req, res) {
 
 async function deleteRecipe(req, res) {
   try {
-    
+    const recipe = await FamilyRecipe.findByIdAndDelete(req.params.recipeId)
+    const profile = await Profile.findById(req.user.profile)
+    profile.familyRecipes.remove({ _id: req.params.recipeId })
+    await profile.save()
+    res.status(200).json(recipe)
   } catch (error) {
     console.log(error)
     res.status(500).json(error)

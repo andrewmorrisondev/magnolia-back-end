@@ -19,7 +19,7 @@ const familyTreeSchema = new Schema(
     },
     members: [memberSchema],
     creator: { type: Schema.Types.ObjectId, ref: 'Profile' },
-    familyRecipes: { type: Schema.Types.ObjectId, ref: 'FamilyRecipe' }
+    familyRecipes: [{ type: Schema.Types.ObjectId, ref: 'FamilyRecipe' }]
   },
   { timestamps: true }
 )

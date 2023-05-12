@@ -44,7 +44,12 @@ async function show(req, res) {
 
 async function update(req, res) {
   try {
-    
+    const recipe = await FamilyRecipe.findByIdAndUpdate(
+      req.params.recipeId,
+      req.body,
+      { new: true }
+    ).populate('creator')
+    res.status(200).json(recipe)
   } catch (error) {
     console.log(error)
     res.status(500).json(error)

@@ -46,7 +46,11 @@ async function update(req, res) {
 
 async function deleteTree(req, res) {
   try {
-    
+    const tree = await FamilyTree.findByIdAndDelete(req.params.treeId)
+    const profile = await Profile.findById(req.user.profile)
+    profile.familyTree.remove({ _id: req.params.treeId })
+    await profile.save()
+    res.status(200).json(tree)
   } catch (error) {
     console.log(error)
     res.status(500).json(error)

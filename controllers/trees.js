@@ -72,10 +72,39 @@ async function createMember(req, res) {
   }
 }
 
+async function updateMember(req, res) {
+  try {
+    const tree = await FamilyTree.findById(req.params.treeId)
+    const member = tree.members.id(req.params.memberId)
+    member.set(req.body)
+    await tree.save()
+
+    res.status(200).json(tree)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
+}
+
+async function deleteMember(req, res) {
+  try {
+    const tree = await FamilyTree.findById(req.params.treeId)
+    tree.members.remove(req.params.memberId)
+    await tree.save()
+
+    res.status(200).json(tree)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
+}
+
 export { 
   create,
   show,
   update,
   deleteTree as delete,
   createMember,
+  updateMember,
+  deleteMember
 }

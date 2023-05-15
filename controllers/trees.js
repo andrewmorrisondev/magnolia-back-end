@@ -72,10 +72,30 @@ async function createMember(req, res) {
   }
 }
 
+async function updateMember(req, res) {
+  try {
+    
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
+}
+
+async function deleteMember(req, res) {
+  try {
+    
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
+}
+
 export { 
   create,
   show,
   update,
   deleteTree as delete,
   createMember,
+  updateMember,
+  deleteMember
 }

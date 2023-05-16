@@ -6,7 +6,12 @@ const memberSchema = new Schema({
   name: {
     type: String,
     required: true,
-  }
+  },
+  relation: {
+    type: String,
+    required: true,
+    enum: ['Parent/Guardian', 'Sibling', 'Child', 'Significant Other', 'Grandparent'],
+  },
 }, {
   timestamps: true
 })

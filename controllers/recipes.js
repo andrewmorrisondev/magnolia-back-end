@@ -69,10 +69,30 @@ async function deleteRecipe(req, res) {
   }
 }
 
+async function addPhoto(req, res) {
+  try {
+    const imageFile = req.files.photo.path
+    const recipe = await FamilyRecipe.findById(req.params.id)
+
+    const image = await cloudinary.uploader.upload(
+      imageFile, 
+      { tags: `${req.user.email}` }
+    )
+    recipe.photo = image.url
+    
+    await recipe.save()
+    res.status(201).json(recipe.photo)
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
+
 export { 
   create,
   index,
   show,
   update,
   deleteRecipe as delete,
+  addPhoto,
 }

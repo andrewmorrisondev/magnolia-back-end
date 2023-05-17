@@ -13,6 +13,7 @@ router.get('/', checkAuth, recipesCtrl.index)
 router.get('/:recipeId', checkAuth, recipesCtrl.show)
 router.post('/', checkAuth, recipesCtrl.create)
 router.put('/:recipeId', checkAuth, recipesCtrl.update)
+router.put('/:recipeId/add-photo', checkAuth, recipesCtrl.addPhoto)
 router.delete('/:recipeId', checkAuth, recipesCtrl.delete)
 
 export { router }

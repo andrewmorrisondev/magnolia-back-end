@@ -10,7 +10,11 @@ const memberSchema = new Schema({
   relation: {
     type: String,
     required: true,
-    enum: ['Parent/Guardian', 'Sibling', 'Child', 'Significant Other', 'Grandparent'],
+    enum: ['Mother', 'Father', 'Parent/Guardian',
+          'Brother', 'Sister', 'Sibling', 
+          'Son', 'Daughter', 'Child', 'Husband', 'Wife',
+          'Significant Other', 'Grandparent'
+        ],
   },
 }, {
   timestamps: true

@@ -17,7 +17,8 @@ const familyRecipeSchema = new Schema(
       required: true,
     },
     creator: { type: Schema.Types.ObjectId, ref: 'Profile' },
-    familyTree: { type: Schema.Types.ObjectId, ref: 'FamilyTree' }
+    familyTree: { type: Schema.Types.ObjectId, ref: 'FamilyTree' },
+    photo: String,
   },
   { timestamps: true }
 )

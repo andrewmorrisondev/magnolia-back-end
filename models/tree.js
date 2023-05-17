@@ -12,8 +12,9 @@ const memberSchema = new Schema({
     required: true,
     enum: ['Mother', 'Father', 'Parent/Guardian',
           'Brother', 'Sister', 'Sibling', 
-          'Son', 'Daughter', 'Child', 'Husband', 'Wife',
-          'Significant Other', 'Grandparent'
+          'Son', 'Daughter', 'Child', 'Husband', 
+          'Wife', 'Significant Other', 'Grandparent',
+          'Grandchild', 'Grandson', 'Granddaughter'
         ],
   },
 }, {
